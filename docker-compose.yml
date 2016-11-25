@@ -1,0 +1,4 @@
+mongo-test:
+       image: mongo
+       ports: 
+         - 666:27017
