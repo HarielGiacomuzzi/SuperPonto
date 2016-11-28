@@ -23,6 +23,7 @@
     "mongodb": "^2.2.11",
     "object-assign": "^4.1.0",
     "react": "^15.4.1",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
     "superagent": "^3.0.0",
     "vision": "^4.1.0"
