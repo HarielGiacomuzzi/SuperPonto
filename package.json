@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/HarielGiacomuzzi/SuperPonto"
+  },
   "scripts": {
     "start": "node index.js --require",
     "test": "echo \"Error: no test specified\" && exit 1"
