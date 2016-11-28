@@ -18,7 +18,7 @@ export default class Table extends React.Component {
   render() {
     return (
 
-<table class="table table-inverse">
+<table className="table table-inverse">
   <thead>
     <tr>
       <th>#</th>

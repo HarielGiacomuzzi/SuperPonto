@@ -8,7 +8,7 @@ MongoClient.connect(conURL, (err, db) => {
     console.log('feitoria');
     db.close();
 });
-module.exports {
+module.exports = {
     insertRegistry: function (data, colection) {
         db.collection(colection).insertOne(data, (err, reg) => {
             if (err) {

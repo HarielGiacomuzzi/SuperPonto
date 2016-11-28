@@ -18,10 +18,10 @@ export default class FillBar extends React.Component {
   render() {
     return (
 
-	<div class="row">
-  		<div class="col-lg-6">
-    			<div class="input-group">
-	      		<input type="text" class="form-control" placeholder={this.props.placeholder} />
+	<div className="row">
+  		<div className="col-lg-6">
+    			<div className="input-group">
+	      		<input type="text" className="form-control" placeholder={this.props.placeholder} />
 			</div>
 	    	</div>
 	</div>

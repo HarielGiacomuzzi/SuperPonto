@@ -18,8 +18,8 @@ export default class Button extends React.Component {
   render() {
     return (
 
-<div class="btn-group">
-  <button type="button" class="btn btn-danger">Send Data</button>
+<div className="btn-group">
+  <button type="button" className="btn btn-danger">{this.props.buttonText}</button>
 </div>
 
     );

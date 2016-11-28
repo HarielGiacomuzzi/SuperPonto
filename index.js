@@ -3,12 +3,10 @@ require('babel-register')({
     presets: ['es2015', 'react']
 , });
 // Constantes
-const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const Hapi = require('hapi');
 const server = new Hapi.Server();
-// Variaveis de configuração de ambiente
-var conURL = 'mongodb://localhost:666/test';
+const MongoHandler = require('./api/MongoHandler');
 // configurações de objetos
 server.connection({
     port: 3000
@@ -16,39 +14,15 @@ server.connection({
 // inicialização do servidor
 server.start((err) => {
     assert.equal(null, err);
-    console.log('Server up and running: ${server.info.uri}');
-    console.log(process.cwd());
+    console.log('Server up and running: ', server.info.uri);
 });
-// registro de plugins
-server.register(
-	  [{
-        register: require('inert')
-    }, {
-        register: require('vision')
-    }], (err) => {
-        if (err) {
-            console.log(err);
-            throw (err);
-        }
-        server.views({
-            engines: {
-                jsx: require('hapi-react-views')
-            }
-            , relativeTo: __dirname
-            , path: 'web-ui'
-        });
-    });
+
 // rotas do servidor
 server.route({
     method: 'GET'
     , path: '/'
-    , handler: {
-        view: 'Default'
+    , handler: (req, repl) => {
+        //console.log(req.collection);
+        repl(JSON.stringify(req));
     }
-});
-// Funções auxiliares
-MongoClient.connect(conURL, (err, db) => {
-    assert.equal(null, err);
-    console.log('feitoria');
-    db.close();
 });
