@@ -21,6 +21,7 @@
     "inert": "^4.0.2",
     "mongo-oplog": "^1.0.1",
     "mongodb": "^2.2.11",
+    "mongoose": "^4.7.0",
     "object-assign": "^4.1.0",
     "react": "^15.4.1",
     "react-bootstrap": "^0.30.7",

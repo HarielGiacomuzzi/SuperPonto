@@ -22,7 +22,7 @@ server.route({
     method: 'GET'
     , path: '/'
     , handler: (req, repl) => {
-        //console.log(req.collection);
-        repl(JSON.stringify(req));
+        console.log(req.headers['collection']);
+        repl('dale');
     }
 });
