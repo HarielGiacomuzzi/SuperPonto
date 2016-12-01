@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/HarielGiacomuzzi/SuperPonto"
+    "type": "git",
+    "url": "https://github.com/HarielGiacomuzzi/SuperPonto"
   },
   "scripts": {
-    "start": "node index.js --require",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Hariel Giacomuzzi",
@@ -23,6 +23,7 @@
     "hapi": "^15.2.0",
     "hapi-react-views": "^9.2.1",
     "inert": "^4.0.2",
+    "lodash": "^4.17.2",
     "mongo-oplog": "^1.0.1",
     "mongodb": "^2.2.11",
     "mongoose": "^4.7.0",
