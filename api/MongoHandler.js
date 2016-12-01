@@ -9,10 +9,11 @@ const UserEntry = require('./../model/entry');
 var conURL = 'mongodb://localhost:666/test';
 
 mongoose.connect(conURL);
+mongoose.set('debug', true);
 
 // 
 module.exports = {
-     createUser : (fName, lName, mail, pass, constr) => {
+     createUser : (fName, lName, mail, pass, constr, callback) => {
         let user = new User({
              firstName   : fName
             ,lastName    : lName
@@ -20,24 +21,21 @@ module.exports = {
             ,password    : pass
             ,constraints : constr
         });
-        
-        console.log(user)
          
         user.save((error)=>{
             if(error)
                 throw(error)
-            console.log('User Created with success');
+            callback('done');
         });
     }
     
-    ,retrieveUserByemail : ( email ) => {
+    ,retrieveUserByemail : ( email , callback) => {
         User.find({
             email : email
         }, (error, user)=>{
             if(error)
                 throw(error)
-            console.log(user)
-            return user
+            callback(user)
         });
     }
 }

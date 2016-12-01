@@ -1,10 +1,8 @@
 "use strict";
 
-const assert       = require('assert');
 const Hapi         = require('hapi');
 const server       = new Hapi.Server();
-const MongoHandler = require('./api/MongoHandler');
-const Handlers     = require('./routeHandlers');
+const Handlers     = require('./api/routeHandlers');
 
 // configurações de objetos
 server.connection({
@@ -21,14 +19,14 @@ server.start((err) => {
 
 // rotas do servidor
 server.route({
-    method: 'GET'
+    method: 'POST'
     , path: '/insertUser'
-    , handler: Handlers.insertUser(req, repl)
+    , handler: Handlers.insertUser
 });
 
 
 server.route({
     method: 'GET'
     , path: '/findByMail'
-    , handler: Handlers.searchUser(req, repl)
+    , handler: Handlers.searchUser
 });

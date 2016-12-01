@@ -1,21 +1,21 @@
 "use strict";
 
-module.exports(
+const MongoHandler = require('./MongoHandler');
+
+module.exports = {
     
     insertUser : (req, repl) => {
-        let firstName   = req.headers['firstName'];
-        let lastName    = req.headers['lastName'];
-        let email       = req.headers['email'];
-        let password    = req.headers['password'];
-        let constraints = req.headers['constraints'];
-        MongoHandler.createUser(firstName, lastName, email, password, constraints);
-        repl('dale');
+        console.log(req.payload)
+        let firstName   = req.payload.firstName;
+        let lastName    = req.payload.lastName;
+        let email       = req.payload.email;
+        let password    = req.payload.password;
+        let constraints = req.payload.constraints;
+        MongoHandler.createUser(firstName, lastName, email, password, constraints , repl);
     }
 
     ,searchUser : (req, repl) => {
         let email       = req.headers['email'];
-        let a = MongoHandler.retrieveUserByemail(email);   
-        repl(a);
+        let a = MongoHandler.retrieveUserByemail(email, repl);   
     }
-
-);
+}
