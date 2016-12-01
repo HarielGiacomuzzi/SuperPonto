@@ -20,6 +20,10 @@ case "$1" in
 		echo "the status of docker containers is:"
 		docker-compose ps
 	;;
+	lint)
+		echo "running ESLint on $2"
+		./node_modules/.bin/eslint "$2" --fix
+	;;
 	node)
 		echo "starting npm"
 		node index.js --require
