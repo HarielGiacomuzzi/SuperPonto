@@ -24,6 +24,12 @@ case "$1" in
 		echo "running ESLint on $2"
 		./node_modules/.bin/eslint "$2" --fix
 	;;
+	lintall)
+		echo "linting files"
+		./node_modules/.bin/eslint server.js --fix
+		./node_modules/.bin/eslint "/api" --fix
+		./node_modules/.bin/eslint "/model" --fix
+	;;
 	node)
 		echo "starting npm"
 		node index.js --require

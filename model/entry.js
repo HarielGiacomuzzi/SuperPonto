@@ -12,6 +12,17 @@ var userEntry = new Schema({
   created_at: Date
 })
 
+userEntry.pre('save', (next) => {
+  let date = new Date()
+  if (!this.created_at) {
+    this.created_at = date
+  }
+
+  this.updated_at = date
+
+  next()
+})
+
 var UserEntry = mongoose.model('UserEntry', userEntry)
 
 module.exports = UserEntry

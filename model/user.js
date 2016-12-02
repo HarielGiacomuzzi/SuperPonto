@@ -19,8 +19,16 @@ var userSchema = new Schema({
   created_at: Date
 })
 
+userSchema.pre('save', (next) => {
+  if (!this.created_at) {
+    this.created_at = new Date()
+  }
+
+  next()
+})
+
 userSchema.virtual('name.full').get(() => {
-  return this.firstName + ' ' + this.lastName
+  this.firstName + ' ' + this.lastName
 })
 
 var User = mongoose.model('User', userSchema)
