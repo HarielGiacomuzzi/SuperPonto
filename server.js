@@ -18,26 +18,25 @@ server.start((err) => {
 })
 
 // rotas do servidor
-server.route({
-  method: 'POST',
-  path: '/insertUser',
-  handler: Handlers.insertUser
-})
-
-server.route({
-  method: 'GET',
-  path: '/findByMail',
-  handler: Handlers.searchUser
-})
-
-server.route({
-  method: 'POST',
-  path: '/insertEntry',
-  handler: Handlers.insertEntry
-})
-
-server.route({
-  method: 'GET',
-  path: '/getEntries',
-  handler: Handlers.searchEntries
-})
+server.route([
+  {
+    method: 'POST',
+    path: '/insertUser',
+    handler: Handlers.insertUser
+  },
+  {
+    method: 'GET',
+    path: '/findByMail',
+    handler: Handlers.searchUser
+  },
+  {
+    method: 'POST',
+    path: '/insertEntry',
+    handler: Handlers.insertEntry
+  },
+  {
+    method: 'GET',
+    path: '/getEntries',
+    handler: Handlers.searchEntries
+  }
+])

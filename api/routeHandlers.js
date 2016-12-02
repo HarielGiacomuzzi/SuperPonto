@@ -2,6 +2,7 @@
 
 const MongoHandler = require('./MongoHandler')
 
+// TODO: Error Handling
 module.exports = {
 
   insertUser: (req, repl) => {

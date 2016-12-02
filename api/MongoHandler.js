@@ -9,7 +9,6 @@ var conURL = 'mongodb://localhost:666/test'
 mongoose.connect(conURL)
 mongoose.set('debug', true)
 
-//
 module.exports = {
   insertUser: (fName, lName, mail, pass, constr, callback) => {
     let user = new User({
@@ -21,8 +20,11 @@ module.exports = {
     })
 
     user.save((error) => {
-      if (error) { throw ('Não Foi possivel inserir um novo usuário\n', error) }
-      callback()
+      if (error) {
+        callback(Error('Não Foi possivel inserir um novo usuário'))
+        throw (error)
+      }
+      callback(user)
     })
   },
 
@@ -31,7 +33,8 @@ module.exports = {
       email: email
     }, (error, user) => {
       if (error) {
-        throw ('Não Foi possivel encontrar o usuário solicitado\n', error)
+        callback(Error('Não Foi possivel encontrar o usuário solicitado'))
+        throw (error)
       }
       callback(user)
     })
@@ -45,7 +48,8 @@ module.exports = {
 
     entry.save((error, entry) => {
       if (error) {
-        throw ('Não foi possivel inserir o registro\n', error)
+        callback(Error('Não foi possivel inserir o registro'))
+        throw (error)
       }
       callback(entry)
     })
@@ -56,7 +60,8 @@ module.exports = {
       user: userID
     }, (error, entry) => {
       if (error) {
-        throw ('Não foi possivel encontrar os registros\n', error)
+        callback(Error('Não foi possivel encontrar os registros'))
+        throw (error)
       }
       callback(entry)
     })
