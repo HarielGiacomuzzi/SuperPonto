@@ -28,6 +28,10 @@ case "$1" in
 		echo "starting npm"
 		node index.js --require
 	;;
+	nodemon)
+		echo "starting nodemon"
+		./node_modules/nodemon/bin/nodemon.js server.js
+	;;
 	*)
 		echo "Usage: ./helper [option]"
 		exit 1

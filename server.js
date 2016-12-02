@@ -29,3 +29,15 @@ server.route({
   path: '/findByMail',
   handler: Handlers.searchUser
 })
+
+server.route({
+  method: 'POST',
+  path: '/insertEntry',
+  handler: Handlers.insertEntry
+})
+
+server.route({
+  method: 'GET',
+  path: '/getEntries',
+  handler: Handlers.searchEntries
+})
