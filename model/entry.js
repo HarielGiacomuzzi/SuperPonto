@@ -7,7 +7,7 @@ var User = require('./user')
 
 var userEntry = new Schema({
   date: Date,
-  user: { type: ObjectID, ref: User },
+  user: { type: ObjectID, ref: 'User' },
   updated_at: Date,
   created_at: Date
 })

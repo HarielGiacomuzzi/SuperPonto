@@ -16,18 +16,17 @@ module.exports = {
   searchUser: (req, repl) => {
     let email = req.headers['email']
     MongoHandler.retrieveUserByemail(email, repl)
-  }
+  },
 
-    
-  ,insertEntry : (req, repl) => {
+  insertEntry: (req, repl) => {
     let date = req.payload.date
     let user = req.payload.user
     MongoHandler.insertEntry(date, user, repl)
+  },
+
+  searchEntries: (req, repl) => {
+    let userID = req.headers['user']
+    MongoHandler.retrieveEntryByUser(userID, repl)
   }
 
- ,searchEntries : (req, repl) => {
-    let user = req.headers['user']
-    MongoHandler.retrieveEntryByUser(user, repl)
- }    
-    
 }
