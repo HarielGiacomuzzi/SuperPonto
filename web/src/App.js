@@ -8,13 +8,16 @@ import './App.css';
 import FillBar from './fillBar.jsx'
 import Table from './table.jsx'
 import Button from './button.jsx'
+import MainNav from './mainNav.jsx'
 
 class App extends Component {
     render() {
         return ( 
             <div className="App">
                 <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
+                    <div>
+                        <MainNav/>
+                    </div>
                     <h2>
                         Ponto App
                     </h2>

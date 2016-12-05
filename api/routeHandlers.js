@@ -2,7 +2,6 @@
 
 const MongoHandler = require('./MongoHandler')
 
-// TODO: Error Handling
 module.exports = {
 
   insertUser: (req, repl) => {
@@ -28,6 +27,11 @@ module.exports = {
   searchEntries: (req, repl) => {
     let userID = req.headers['user']
     MongoHandler.retrieveEntryByUser(userID, repl)
-  }
+  },
 
+  editEntry: (req, repl) => {
+   let date = req.payload.date
+   let id   = req.payload.id
+   MongoHandler.editEntry(id, date, repl)
+  }
 }

@@ -6,7 +6,7 @@ const Handlers = require('./api/routeHandlers')
 
 // configurações de objetos
 server.connection({
-  port: 3000
+  port: 9000
 })
 
 // inicialização do servidor
@@ -38,5 +38,10 @@ server.route([
     method: 'GET',
     path: '/getEntries',
     handler: Handlers.searchEntries
+  },
+  {
+    method: 'POST',
+    path: '/editEntry',
+    handler: Handlers.editEntry
   }
 ])

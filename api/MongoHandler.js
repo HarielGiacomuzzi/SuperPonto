@@ -65,6 +65,37 @@ module.exports = {
       }
       callback(entry)
     })
-  }
+  },
+    
+  editEntry: (entryID, date, callback) =>{
+      UserEntry.update({
+          _id : entryID
+      },{
+           date : date
+          ,updated_at : new Date()
+      },(error, entry) => {
+          if(error){
+              callback(new Error('Cannot find the entry requested'))
+          }else{
+              callback(entry)        
+          }
+      });
+//      UserEntry.findOneAndUpdate({
+//          _id : entryID  
+//      },{
+//          date : date
+//      }, (error, entry) => {
+//          if( error ){
+//              callback(new Error('Não foi possivel encontrar o registro'));
+//          }else{
+//              callback(entry);
+//          }
+//      });    
+  } 
 
 }
+
+
+
+
+

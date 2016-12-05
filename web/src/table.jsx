@@ -4,9 +4,20 @@ export default class Table extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = { data : [] }
   }
 
   componentDidMount() {
+    fetch('localhost:9000/findByMail', {
+        method: 'GET',
+        headers: {
+        'email' : 'as@asd.cmo'
+        }
+    })
+    .then(result=> {
+        this.setState({data:result.json()});
+        console.log('then : ' + this.state.data)
+    });
   }
 
   componentWillUnmount() {
@@ -15,6 +26,29 @@ export default class Table extends React.Component {
   _onChange() {
   }
 
+  createTableRows(){
+      console.log('date: ' + this.state.data)
+      return (
+        <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+    </tr>
+  </tbody>
+      )
+  }
+    
   render() {
     return (
 
@@ -22,31 +56,11 @@ export default class Table extends React.Component {
   <thead>
     <tr>
       <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
+      <th>Date</th>
+      <th>Times</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
+  {this.createTableRows()}
 </table>
 
     );

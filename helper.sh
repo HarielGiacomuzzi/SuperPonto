@@ -1,7 +1,7 @@
 case "$1" in
 	start)
 		echo "starting docker and node service"
-		docker-compose up -d && npm start
+		docker-compose up -d 
 	;;
 	stop)
 		echo "stopping"
