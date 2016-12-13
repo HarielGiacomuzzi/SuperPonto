@@ -16,10 +16,6 @@ case "$1" in
 		docker-compose stop && docker-compose rm -f
 		docker-compose up -d && npm start
 	;;
-	status)
-		echo "the status of docker containers is:"
-		docker-compose ps
-	;;
 	lint)
 		echo "running ESLint on $2"
 		./node_modules/.bin/eslint "$2" --fix
